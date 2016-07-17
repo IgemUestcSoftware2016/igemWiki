@@ -13,7 +13,7 @@ a.navbar-brand{
 .myContainer{
     width: 80%;
     float: left;
-    /*text-align: center;*/
+    text-align: center;
 }
 ul.nav{
     width:90%;
@@ -27,5 +27,6 @@ ul.nav li{
 }
 #secondNavBar{
     display: none;
+    text-align: center;
 }
 /*nav end*/

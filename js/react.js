@@ -41,15 +41,13 @@ var Nav = React.createClass({
 	componentDidMount: function() {
 		var _self = this
 		$(".firstNav li").hover(function() {
-			// console.log($(this).attr('id'))
-			$("#secondNavBar").css('display', 'block');
+			// $("#secondNavBar").css('display', 'block');
 			var nowState = _self.props.data[$(this).attr('id')]
-			// console.log(nowState)
 			_self.setState(
 				_self.props.data[$(this).attr('id')]
 			);
 		}, function() {
-			$("#secondNavBar").css('display', 'none');
+			// $("#secondNavBar").css('display', 'none');
 			_self.setState(
 				_self.props.data.Project
 			);
