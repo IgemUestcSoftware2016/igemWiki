@@ -1,44 +1,11 @@
-var myData = 
-{
-	title:{
-		"link":"http://www.baidu.com",
-		"name":"hello world"
-	},
-	list:[
-		{
-			"link":"http://www.baidu.com",
-			"name":"hello world"
-		},
-		{
-			"link":"http://www.baidu.com",
-			"name":"hello world"
-		},
-		{
-			"link":"http://www.baidu.com",
-			"name":"hello world"
-		},
-		{
-			"link":"http://www.baidu.com",
-			"name":"hello world"
-		},
-		{
-			"link":"http://www.baidu.com",
-			"name":"hello world"
-		}
-	]
-}
-
 var SecondNavTitle = React.createClass({
-
 	render: function() {
 		return (
 			<a className="navbar-brand" href={this.props.title.link}>{this.props.title.name}</a>
 		);
 	}
 });
-
 var SecondNavList = React.createClass({
-
 	render: function() {
 		var lists = this.props.lists;
 		return (
@@ -47,17 +14,15 @@ var SecondNavList = React.createClass({
 				lists.map(function(list,index) {
 					return (<li key={index}><a href={list.link}>{list.name}</a></li>)
 				})
-
 			}
             </ul>
 		);
 	}
-
 });
-
 var SecondNav = React.createClass({
 	render: function() {
 		var data = this.props.data
+		// console.log(data)
 		return (
 				<div className="navbar">
 		            <div className="container-fluid">
@@ -67,11 +32,38 @@ var SecondNav = React.createClass({
 		        </div>
 		);
 	}
+});
+var Nav = React.createClass({
+
+	getInitialState: function() {
+		return (this.props.data.Project)
+	},
+	componentDidMount: function() {
+		var _self = this
+		$(".firstNav li").hover(function() {
+			// console.log($(this).attr('id'))
+			$("#secondNavBar").css('display', 'block');
+			var nowState = _self.props.data[$(this).attr('id')]
+			// console.log(nowState)
+			_self.setState(
+				_self.props.data[$(this).attr('id')]
+			);
+		}, function() {
+			$("#secondNavBar").css('display', 'none');
+			_self.setState(
+				_self.props.data.Project
+			);
+		});
+	},
+	render: function() {
+		return (
+			<SecondNav data={this.state} />
+		);
+	}
 
 });
-
 ReactDOM.render(
-	<SecondNav data={myData} />,
+	<Nav data={navData} />,
   	document.getElementById('secondNavBar')
 );
 

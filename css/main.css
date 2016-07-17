@@ -25,4 +25,7 @@ ul.nav li{
 .firstNav{
     margin-bottom: 0px;
 }
+#secondNavBar{
+    display: none;
+}
 /*nav end*/
